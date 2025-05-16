@@ -28,7 +28,7 @@ export default function GenresDropdown() {
     }, []);
 
     return (
-        <details className="dropdown">
+        <details className="dropdown py-2">
             <summary>Genres</summary>
             {error && <small>{error}</small>}
             <ul>

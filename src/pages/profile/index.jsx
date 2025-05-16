@@ -35,16 +35,19 @@ export default function ProfilePage() {
                   className="w-full h-full object-cover"
                 />
               </figure>
-              <div className="card-body p-4">
+              <div className="card-body p-4 flex flex-col">
                 <h2 className="card-title text-lg">{game.game_name}</h2>
-                <div className="card-actions justify-end mt-4">
+                {game.released && (
+                  <p className="text-xs text-gray-500 mb-2">Rilasciato: {game.released}</p>
+                )}
+                <div className="mt-auto">
                   <button
                     className="btn btn-sm btn-error"
                     onClick={() => removeFavorite(game.game_id)}
                     title="Rimuovi dai preferiti"
                   >
                     <FaTrashAlt />
-                    <span className="hidden sm:inline">Rimuovi</span>
+                    <span className="hidden sm:inline ml-1">Rimuovi</span>
                   </button>
                 </div>
               </div>

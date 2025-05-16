@@ -12,39 +12,40 @@ export default function Header () {
         if (error) console.log(error)
         alert("Signed Out 👍🏻!");
         navigate("/");
-    }
+    };
 
     return (
-        <nav className="flex justify-between items-center px-4 bg-base-200">
+        <nav className="flex justify-between items-center px-7 py-1 bg-base-200 shadow-sm">
             <ul>
                 <li>
-                    <a href="/"><strong>Gamer's Den</strong></a>
+                    <a href="/" className="text-2xl font-bold no-underline"><strong>🎮 Gamer's Den</strong></a>
                 </li>
             </ul>
-            <ul>
-                <li>
-                    <details className="dropdown">
-                        <summary>Ciao 👋🏻 {session?.user.user_metadata.first_name}</summary>
-                        <ul dir="rtl">
-                            <li>
-                                <Link to="/profile">Profilo</Link>
-                            </li>
-                            <li>
-                                <Link to="/account">Settings</Link>
-                            </li>
-                            <li>
-                                <button onClick={signOut}>logout</button>
-                            </li>
-                        </ul>
-                    </details>
-                </li>
-                <li>
-                    <Link to="/login" className="secondary">Login</Link>
-                </li>
-                <li>
-                    <Link to="/register" className="secondary">Register</Link>
-                </li>
+            <ul className="flex gap-4 items-center">
+                {session ? (
+                    <li>
+                        <details className="dropdown">
+                            <summary className="text-lg font-medium cursor-pointer no-underline">
+                                Ciao 👋🏻 {session.user.user_metadata.first_name}
+                            </summary>
+                            <ul dir="rtl" className="p-2 bg-base-100 shadow rounded-box w-40 mt-2 z-50 text-right">
+                                <li><Link to="/profile" className="no-underline">Profilo</Link></li>
+                                <li><Link to="/account" className="no-underline">Settings</Link></li>
+                                <li><button onClick={signOut}>Logout</button></li>
+                            </ul>
+                        </details>
+                    </li>
+                ) : (
+                    <>
+                        <li>
+                            <Link to="/login" className="secondary no-underline btn btn-sm btn-secondary">Login</Link>
+                        </li>
+                        <li>
+                            <Link to="/register" className="secondary no-underline btn btn-sm btn-primary">Register</Link>
+                        </li>
+                    </>
+                )}
             </ul>
-        </nav>        
+        </nav>
     );
 }
