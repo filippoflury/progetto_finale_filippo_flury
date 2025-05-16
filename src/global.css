@@ -1,24 +1,2 @@
-
-
-.style-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 1rem;
-    background-color: #eaeaea;
-}
-
-.grid-system {
-    display: grid;
-    gap: 1rem;
-    justify-content: center;
-    height: 100vh;
-    padding-top: 2rem;
-}
-
-.style-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-}
+@import "tailwindcss";
+@plugin "daisyui";

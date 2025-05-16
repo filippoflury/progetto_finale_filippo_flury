@@ -15,7 +15,7 @@ export default function Header () {
     }
 
     return (
-        <nav className="style-header">
+        <nav className="flex justify-between items-center px-4 bg-base-200">
             <ul>
                 <li>
                     <a href="/"><strong>Gamer's Den</strong></a>

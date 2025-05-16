@@ -1,6 +1,6 @@
 export default function Footer () {
     return (
-        <footer className="style-footer">
+        <footer className="flex justify-between items-center p-4 bg-base-200">
             <ul>
                 <li>
                     <strong>Rehacktor</strong>

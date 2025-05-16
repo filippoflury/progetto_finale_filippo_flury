@@ -3,37 +3,37 @@ import { useNavigate } from "react-router";
 import { FaSearch } from "react-icons/fa";
 
 export default function Searchbar() {
-    const navigate = useNavigate();
-    const [search, setSearch] = useState("");
-    const [ariaInvalid, setAriaInvalid] = useState(null);
+  const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+  const [ariaInvalid, setAriaInvalid] = useState(null);
 
-    const handleSearch = (event) => {
-        event.preventDefault();
-        if (typeof search === 'string' && search.trim().length !== 0) {
-            navigate(`/search?query=${search}`);
-            setSearch("");
-        } else {
-            setAriaInvalid(true);
-        }
-    };
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (search.trim()) {
+      navigate(`/search?query=${search}`);
+      setSearch("");
+    } else {
+      setAriaInvalid(true);
+    }
+  };
 
-    return (
-        <form onSubmit={handleSearch} className="flex items-center w-full bg-black rounded-lg shadow-lg">
-            <button
-                type="submit"
-                className="flex items-center justify-center px-5 py-5 bg-black text-white rounded-l-lg hover:bg-gray-800 hover:bg-opacity-60 focus:outline-none transition-colors"
-            >
-                <FaSearch className="text-lg text-lime-400 hover:text-white transition-colors" />
-            </button>
-            <input
-                type="text"
-                name="search"
-                placeholder={ariaInvalid ? "cerca qualcosa" : "Cerca un gioco..."}
-                onChange={(event) => setSearch(event.target.value)}
-                value={search}
-                aria-invalid={ariaInvalid}
-                className="w-full py-3 px-4 text-lg text-white bg-black rounded-r-lg focus:outline-none"
-            />
-        </form>
-    );
+  return (
+    <form onSubmit={handleSearch} className="grid grid-cols-4 w-full overflow-hidden rounded-xl">
+  <input
+    type="text"
+    name="search"
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    placeholder={ariaInvalid ? "Cerca qualcosa..." : "Cerca un gioco..."}
+    aria-invalid={ariaInvalid}
+    className="col-span-3 px-4 py-3 text-base bg-base-200 text-base-content placeholder:text-base-content/60 focus:outline-none rounded-l-xl"
+  />
+  <button
+    type="submit"
+    className="col-span-1 flex items-center justify-center px-4 py-3 bg-lime-500 text-white hover:bg-lime-600 transition-colors rounded-r-xl"
+  >
+    <FaSearch className="text-lg" />
+  </button>
+</form>
+  );
 }
