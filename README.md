@@ -40,3 +40,4 @@ Si è deciso di utilizzare un contesto per gestire i preferiti e un altro per ge
 
 ## Deployment
 
+https://progetto-finale-filippo-flury.vercel.app/
