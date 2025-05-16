@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
-import CardGame from '../../components/cardGame';
+import CardGame from '../../components/CardGame';
 import useFetchSolution from '../../hook/useFetchSolution';
 
 export default function SearchPage() {

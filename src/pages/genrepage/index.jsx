@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import CardGame from "../../components/cardGame";
+import CardGame from "../../components/CardGame";
 import useFetchSolution from "../../hook/useFetchSolution";
 
 export default function GenrePage() {
