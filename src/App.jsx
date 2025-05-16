@@ -1,12 +1,13 @@
-import { Routing } from './routes/Routing'
+import { Routing } from "./routes/Routing";
+import SessionProvider from "./context/SessionProvider";
+import FavoritesProvider from './context/FavoritesProvider';
 
-
-function App() {
+export default function App() {
   return (
-    <>
-      <Routing />
-    </>
-  )
+    <SessionProvider>
+      <FavoritesProvider>
+        <Routing />
+      </FavoritesProvider>
+    </SessionProvider>
+  );
 }
-
-export default App

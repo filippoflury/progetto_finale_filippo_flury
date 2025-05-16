@@ -1,6 +1,6 @@
 export default function Footer () {
     return (
-        <footer>
+        <footer className="style-footer">
             <ul>
                 <li>
                     <strong>Rehacktor</strong>

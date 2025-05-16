@@ -1,22 +1,48 @@
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router';
+import supabase from '../supabase/supabase-client';
+import SessionContext from '../context/SessionContext';
+
 export default function Header () {
+    const navigate = useNavigate();
+    const { session } = useContext(SessionContext);
+
+    const signOut = async () => {
+        const { error } = await supabase.auth.signOut();
+        if (error) console.log(error)
+        alert("Signed Out 👍🏻!");
+        navigate("/");
+    }
+
     return (
-        <nav>
+        <nav className="style-header">
             <ul>
-                <li><strong>Rehacktor</strong></li>
+                <li>
+                    <a href="/"><strong>Gamer's Den</strong></a>
+                </li>
             </ul>
             <ul>
                 <li>
-                    <a href="#" className="secondary">Services</a>
-                </li>
-                <li>
                     <details className="dropdown">
-                        <summary>Account</summary>
+                        <summary>Ciao 👋🏻 {session?.user.user_metadata.first_name}</summary>
                         <ul dir="rtl">
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li>
+                                <Link to="/profile">Profilo</Link>
+                            </li>
+                            <li>
+                                <Link to="/account">Settings</Link>
+                            </li>
+                            <li>
+                                <button onClick={signOut}>logout</button>
+                            </li>
                         </ul>
                     </details>
+                </li>
+                <li>
+                    <Link to="/login" className="secondary">Login</Link>
+                </li>
+                <li>
+                    <Link to="/register" className="secondary">Register</Link>
                 </li>
             </ul>
         </nav>        
