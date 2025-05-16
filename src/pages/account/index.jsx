@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import supabase from "../../supabase/supabase-client";
 import SessionContext from "../../context/SessionContext";
-import Avatar from "../../components/avatar";
+import Avatar from "../../components/Avatar";
 
 export default function AccountPage() {
     const { session } = useContext(SessionContext);
